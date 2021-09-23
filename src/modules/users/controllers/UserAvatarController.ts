@@ -1,3 +1,4 @@
+import { classToClass } from "class-transformer";
 import { Request, Response } from "express";
 import { UpdateUserAvatarService } from "../services/UpdateUserAvatarService";
 
@@ -10,6 +11,6 @@ export class UserAvatarController {
       avatarFilename: req.file?.filename as string
     })
 
-    return res.json(user)
+    return res.json(classToClass(user))
   }
 }
